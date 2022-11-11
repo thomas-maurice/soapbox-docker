@@ -33,6 +33,8 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 You need to run the container with the `prod.secret.exs` file mounted at `/opt/pleroma/config/prod.secret.exs`, db migrations should be run automatically.
 
+You need to mount a directory to `/opt/pleroma/uploads` to persist the uploads from the users
+
 ## Run locally for testing
 
 Run `docker-compose up`, then `./pleroma.sh`
@@ -45,3 +47,8 @@ Your container will be acessible at `https://social.localhost`
 
 I refer you to the [soapbox docs](https://soapbox.pub/install/), but basically
 `MIX_ENV=prod mix pleroma.user new <username> <your@emailaddress> --admin`
+
+## Administrating your instance
+
+When logged as the admin you can access to the soapbox admin interface: [https://<yourdomain>/soapbox/admin](https://social.localhost/soapbox/admin)
+You an access the pleroma interface at [https://<yourdomain.com>/pleroma/admin](https://social.localhost/pleroma/admin)
