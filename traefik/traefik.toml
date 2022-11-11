@@ -1,0 +1,29 @@
+[global]
+    checkNewVersion = true
+    sendAnonymousUsage = false
+
+[entryPoints]
+# HTTP(S) entrypoints
+  [entryPoints.http]
+    address = ":80"
+  [entryPoints.https]
+    address = ":443"
+  # UDP entrypoints
+# TCP entrypoints
+[metrics]
+    [metrics.prometheus]
+
+[providers]
+    [providers.file]
+        directory = "/etc/traefik/config"
+        watch = true
+        debugLogGeneratedTemplate = true
+
+[accessLog]
+    filePath = "/var/log/traefik/access.log"
+    format = "json"
+
+[api]
+    insecure = true
+    dashboard = true
+    debug = true

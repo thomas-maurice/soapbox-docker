@@ -1,0 +1,22 @@
+[http.middlewares]
+# Redirect schemes
+[http.middlewares.redirect-https.redirectScheme]
+    scheme = "https"
+    permanent = true
+
+# Ip address middlewares (whitelists)
+[http.middlewares.ip-any.ipWhiteList]
+    sourceRange = [
+        "0.0.0.0/0",
+    ]
+[http.middlewares.ip-internal.ipWhiteList]
+    sourceRange = [
+        "10.0.0.0/8",
+        "192.168.0.0/16",
+        "172.16.0.0/12",
+    ]
+
+# Headersets middlewares
+[http.middlewares.headers-strip-host-header.headers]
+    [http.middlewares.headers-strip-host-header.headers.customRequestHeaders]
+    Host = ""

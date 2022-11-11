@@ -1,0 +1,46 @@
+[http.serversTransports.insecureskip]
+  insecureSkipVerify = true
+
+[http.services]
+[http.services.vault.loadBalancer]
+    serversTransport = "insecureskip"
+    passHostHeader = true
+    
+[http.services.pleroma.loadBalancer]
+    serversTransport = "insecureskip"
+    passHostHeader = true
+    [http.services.pleroma.loadBalancer.healthCheck]
+        path = "/"
+        interval = "10s"
+        timeout = "3s"
+        [[http.services.pleroma.loadBalancer.servers]]
+        url = "http://localhost:4000"
+        
+[http.routers]
+    [http.routers.dashboard]
+        entryPoints = ["https"]
+        rule = "Host(`traefik.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+        service = "api@internal"
+        [http.routers.dashboard.tls]
+    [http.routers.metrics]
+        entryPoints = ["https"]
+        rule = "Host(`metrics.localhost`)"
+        service = "prometheus@internal"
+        [http.routers.metrics.tls]
+    [http.routers.pleroma]
+        entryPoints = [
+            "https",
+        ]
+        middlewares = [
+            "redirect-https",
+        ]
+        rule = "Host(`social.localhost`)"
+        service = "pleroma"
+        [http.routers.pleroma.tls]
+    [http.routers.pleroma-https-redirect]
+        entryPoints = ["http"]
+        rule = "Host(`social.localhost`)"
+        service = "pleroma"
+        middlewares = [
+            "redirect-https",
+        ]

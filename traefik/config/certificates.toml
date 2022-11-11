@@ -1,0 +1,4 @@
+[[tls.certificates]]
+    certFile = "/etc/traefik/certificates/cert.crt"
+    keyFile = "/etc/traefik/certificates/cert.key"
+    stores = ["default"]
