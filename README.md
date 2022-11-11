@@ -34,7 +34,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 You need to run the container with the `prod.secret.exs` file mounted at `/opt/pleroma/config/prod.secret.exs`, db migrations should be run automatically.
 
-You need to mount a directory to `/opt/pleroma/uploads` to persist the uploads from the users
+You need to mount a directory to `/opt/pleroma/uploads` to persist the uploads from the users, this group should be owned by `998:998`
 
 ## Run locally for testing
 
