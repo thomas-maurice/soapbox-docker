@@ -7,6 +7,7 @@ Deploys an instance of Soapbox with the `rebased` backend.
 `docker build -t pleroma .`
 
 ## Get the image from dockerhub
+
 ```
 docker pull mauricethomas/soapbox-docker
 docker tag mauricethomas/soapbox-docker pleroma
@@ -50,5 +51,5 @@ I refer you to the [soapbox docs](https://soapbox.pub/install/), but basically
 
 ## Administrating your instance
 
-When logged as the admin you can access to the soapbox admin interface: [https://<yourdomain>/soapbox/admin](https://social.localhost/soapbox/admin)
+When logged as the admin you can access to the soapbox admin interface: https://social.localhost/soapbox/admin
 You an access the pleroma interface at [https://<yourdomain.com>/pleroma/admin](https://social.localhost/pleroma/admin)
