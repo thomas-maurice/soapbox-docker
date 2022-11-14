@@ -3,6 +3,9 @@ name: Build and publish on Docker Hub
 on:
   push:
     branches: [master]
+  schedule:
+  # New build every tuesday cause why not
+   - cron:  '0 0 * * 2'
     
 jobs:
   docker:

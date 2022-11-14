@@ -1,6 +1,6 @@
 # soapbox-docker
 
-Deploys an instance of Soapbox with the `rebased` backend.
+Deploys an instance of Soapbox with the `rebased` backend. Docker image available on [Docker Hub](https://hub.docker.com/r/mauricethomas/soapbox-docker). A new version of the image is rebuilt automatically
 
 ## Build the image
 
