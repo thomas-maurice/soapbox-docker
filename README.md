@@ -4,18 +4,17 @@ Deploys an instance of Soapbox with the `rebased` backend. Docker image availabl
 
 ## Build the image
 
-`docker build -t pleroma .`
+`docker build -t mauricethomas/soapbox-docker .`
 
 ## Get the image from dockerhub
 
 ```
 docker pull mauricethomas/soapbox-docker
-docker tag mauricethomas/soapbox-docker pleroma
 ```
 
 ## Generate a config file
 
-Run the image `docker run -it pleroma bash`, and create a new config file `mix pleroma.instance gen`. Then copy the `/opt/pleroma/config/generated_config.exs` and save it outside the image as `prod.secret.exs`, you will need this to start yout instance.
+Run the image `docker run -it mauricethomas/soapbox-docker bash`, and create a new config file `mix pleroma.instance gen`. Then copy the `/opt/pleroma/config/generated_config.exs` and save it outside the image as `prod.secret.exs`, you will need this to start yout instance.
 
 ## Prepare the database
 
